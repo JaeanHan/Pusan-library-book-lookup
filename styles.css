@@ -1,0 +1,439 @@
+/* 바탕화면입니다. */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    width: 100%;
+    --s: 84px;
+    --c1: #f2f2f2;
+    --c2: #cdcbcc;
+    --c3: #999999;
+    --_g: 0 120deg, #0000 0;
+    background: 
+        conic-gradient(
+            from 0deg at calc(500% / 6) calc(100% / 3),
+            var(--c3) var(--_g)
+        ),
+        conic-gradient(
+            from -120deg at calc(100% / 6) calc(100% / 3),
+            var(--c2) var(--_g)
+        ),
+        conic-gradient(
+            from 120deg at calc(100% / 3) calc(500% / 6),
+            var(--c1) var(--_g)
+        ),
+        conic-gradient(
+            from 120deg at calc(200% / 3) calc(500% / 6),
+            var(--c1) var(--_g)
+        ),
+        conic-gradient(
+            from -180deg at calc(100% / 3) 50%,
+            var(--c2) 60deg,
+            var(--c1) var(--_g)
+        ),
+        conic-gradient(
+            from 60deg at calc(200% / 3) 50%,
+            var(--c1) 60deg,
+            var(--c3) var(--_g)
+        ),
+        conic-gradient(
+            from -60deg at 50% calc(100% / 3),
+            var(--c1) 120deg,
+            var(--c2) 0 240deg,
+            var(--c3) 0
+        );
+    background-size: calc(var(--s) * 1.732) var(--s);
+}
+
+/* anchor 태그 입니다. */
+a {
+    color: black;
+    display: block;
+    font-size: 1.17em;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    unicode-bidi: isolate;
+}
+
+a:hover {
+    color: #2DB400;
+}
+
+/* 콘텐트 뷰어입니다. */
+.container {
+    max-width: 1060px;
+    height: max-content;
+    min-height: 300px;
+    margin: 0 auto;
+    padding: 0 20px;
+    background-color: #f7f7f7;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 콘텐트 뷰어 상단의 navigation 입니다. */
+body>header>nav {
+    position: fixed;
+    background-color: #fff;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    /* border-bottom-left-radius: 15px; */
+    /* border-bottom-right-radius: 15px; */
+    z-index: 9999;
+}
+
+h1 {
+    text-align: center;
+}
+
+/* 폼 엘리먼트 스타일입니다. */
+#searchForm {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    line-height: 100%;
+    width: 100%;
+}
+
+#searchForm>input {
+    border-radius: 10px;
+    outline: 2px solid #00a6fb;
+    border: 0;
+    background-color: #fff;
+    outline-offset: 3px;
+    padding: 5px 10px;
+    transition: all 0.2s ease;
+    max-width: 200px;
+}
+
+/* pseudoClass2 */
+#searchForm>input:hover {
+      background-color: #d6f1ff;
+}
+  
+#searchForm>input:focus {
+    outline-offset: -6px;
+    background-color: #d6f1ff;
+}
+
+#searchForm>button {
+    margin: auto 0;
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#searchForm>button:hover {
+    background-color: #0056b3;
+}
+
+#searchForm+form {
+    margin: auto 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#searchForm+form label {
+    margin-right: 10px;
+}
+
+#searchForm+form label:hover {
+    text-decoration: underline;
+}
+
+#searchForm+form input {
+    margin-right: 10px;
+}
+
+#searchForm+form input[name="naver"] {
+    border-color: #2DB400;
+    border-style: solid;
+    border-radius: 4px;
+}
+
+/* attributeSelector2 */
+input[name="naver"]:focus {
+    border-color: #2DB400;
+}
+
+button[name="naver"] {
+    background-color: #2DB400;
+    border: none;
+    color: white;
+    border-radius: 4px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+/* 즐겨 찾기 버튼 스타일입니다 */
+#favorite {
+    margin: 5px auto;
+    width: 400px;
+    display: block;
+}
+
+#favorite button[name="favorite"] {
+    border: 1px solid #ff9e0b;
+    border-radius: 4px;
+    background-color: #ff9e0b;
+    color: white;
+    cursor: pointer;
+    padding: 5px 5px;
+}
+
+/* fetch 결과 뷰어입니다. */
+#result {
+    width: 100%;
+    padding-top: 220px;
+    margin-bottom: 20px;
+    display: block;
+}
+
+/* 책 하나를 표현하는 카드 스타일입니다 */
+.book-card {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: calc(100% - 40px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.tools {
+    display: flex;
+    align-items: start;
+    padding: 9px;
+    width: 100%;
+    padding-left: 20px;
+}
+   
+.circle {
+    padding: 0 4px;
+}
+
+.box {
+    display: inline-block;
+    align-items: center;
+    width: 10px;
+    height: 10px;
+    padding: 1px;
+    border-radius: 50%;
+}
+
+.red {
+    background-color: #ff605c;
+}
+
+.yellow {
+    background-color: #ffbd44;
+}
+
+.green {
+    background-color: #00ca4e;
+}
+
+.book-card__detail {
+    display: flex;
+    perspective: 1000px;
+    position: relative;
+}
+/* combinator5 */
+.book-card__detail>div:first-child {
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+    perspective: 1000px;
+    position: relative;
+    overflow: hidden;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.book-card__detail>div:first-child:hover {
+    transform: rotateY(10deg) rotateX(10deg) scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+}
+
+.book-card__detail>div:first-child::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: calc(100% - 10px);
+    height: 100%;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.1));
+    transition: transform 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+    z-index: 1;
+}
+
+.book-card__detail>div:first-child::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: calc(100% - 10px);
+    height: 100%;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.1));
+    transition: transform 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+    z-index: 1;
+}
+
+/* pseudoElement2 */
+.book-card__detail>div:first-child:hover::before {
+    transform: translateX(-100%);
+}
+  
+.book-card__detail>div:first-child:hover::after {
+    transform: translateX(100%);
+}
+
+  /* 로딩중임을 알리는 스피너 스타일링입니다.*/
+.spinner {
+    font-size: 28px;
+    position: relative;
+    display: block;
+    width: 1em;
+    height: 1em;
+    margin: 0 auto;
+    margin-bottom: 80px;
+}
+
+.spinner .spinner-blade {
+    position: absolute;
+    left: 0.4629em;
+    bottom: 0;
+    width: 0.074em;
+    height: 0.2777em;
+    border-radius: 0.0555em;
+    background-color: transparent;
+    transform-origin: center -0.2222em;
+    animation: spinner-fade9234 1s infinite linear;
+    list-style: none;
+}
+  
+.spinner .spinner-blade:nth-child(1) {
+    animation-delay: 0s;
+    transform: rotate(0deg);
+}
+
+.spinner .spinner-blade:nth-child(2) {
+    animation-delay: 0.083s;
+    transform: rotate(30deg);
+}
+
+.spinner .spinner-blade:nth-child(3) {
+    animation-delay: 0.166s;
+    transform: rotate(60deg);
+}
+
+.spinner .spinner-blade:nth-child(4) {
+    animation-delay: 0.249s;
+    transform: rotate(90deg);
+}
+
+.spinner .spinner-blade:nth-child(5) {
+    animation-delay: 0.332s;
+    transform: rotate(120deg);
+}
+
+.spinner .spinner-blade:nth-child(6) {
+    animation-delay: 0.415s;
+    transform: rotate(150deg);
+}
+
+.spinner .spinner-blade:nth-child(7) {
+    animation-delay: 0.498s;
+    transform: rotate(180deg);
+}
+
+.spinner .spinner-blade:nth-child(8) {
+    animation-delay: 0.581s;
+    transform: rotate(210deg);
+}
+
+.spinner .spinner-blade:nth-child(9) {
+    animation-delay: 0.664s;
+    transform: rotate(240deg);
+}
+
+.spinner .spinner-blade:nth-child(10) {
+    animation-delay: 0.747s;
+    transform: rotate(270deg);
+}
+
+.spinner .spinner-blade:nth-child(11) {
+    animation-delay: 0.83s;
+    transform: rotate(300deg);
+}
+
+.spinner .spinner-blade:nth-child(12) {
+    animation-delay: 0.913s;
+    transform: rotate(330deg);
+}
+
+@keyframes spinner-fade9234 {
+    0% {
+        background-color: #69717d;
+    }
+
+    100% {
+        background-color: transparent;
+    }
+}
+
+footer {
+    background-color: #fff;
+    width: 100%;
+    text-align: center;
+    line-height: 100%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    position: fixed;
+    bottom: 0;
+    height: max-content;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-around;
+}
+
+/* 900px 이하의 작은 화면을 위한 반응형 스타일 설정입니다 */
+@media (max-width: 900px) {
+    body {
+        width: 90%;
+        margin: 0 auto;
+    }
+    #searchForm {
+        flex-direction: column;
+        display: none;
+    }
+    #searchForm input {
+        margin-bottom: 15px;
+    }
+    #searchForm+form {
+        margin-top: 10px;
+    }
+    #result {
+        padding-top: 180px;
+    }
+    body>header>nav:hover #searchForm {
+        display: flex;
+    }
+}
