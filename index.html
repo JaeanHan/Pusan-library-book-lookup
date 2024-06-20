@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>도서 검색</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>부산광역시 도서 현황</h1>
+            <form id="searchForm">
+                <input placeholder="도서 제목" type="text">
+                <input placeholder="출판일" type="date">
+                <input placeholder="저자" type="text">
+                <input placeholder="도서관 이름" type="text">
+                <button>적용하기</button>
+            </form>
+            <form id="naverSearch">
+                <label for="naver">찾고있는 책이 없나요?</label>
+                <input placeholder="네이버에서 검색" id="naver" name="naver" type="text" />
+                <button name="naver">검색</button>
+            </form>
+            <div id="favorite">
+                <span>책을 즐겨찾기에 등록해보세요!</span>
+                <button type="button" name="favorite" >즐겨찾기 바로가기</button>
+            </div>
+        </nav>
+    </header>
+    <section class="container">
+        <article id="result"></article>
+        <ul class="spinner">
+            <li class="spinner-blade"></li>
+            <li class="spinner-blade"></li>
+            <li class="spinner-blade"></li>
+            <li class="spinner-blade"></li>
+            <li class="spinner-blade"></li>
+            <li class="spinner-blade"></li>
+            <li class="spinner-blade"></li>
+            <li class="spinner-blade"></li>
+            <li class="spinner-blade"></li>
+            <li class="spinner-blade"></li>
+            <li class="spinner-blade"></li>
+            <li class="spinner-blade"></li>
+        </ul>
+    </section>
+    <footer>
+        <h3>
+            한재안 201924607
+        </h3>
+        <h3>
+            GitHub : JaeanHan
+        </h3>
+    </footer>
+    <script defer type="module" src="index.js"></script>
+</body>
+</html>
